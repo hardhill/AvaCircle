@@ -87,11 +87,17 @@ namespace Avacircle
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) // или любую другую, какая удобнее
+            if (e.Button == MouseButtons.Left) //
             {
                 Point pos = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
                pictureBox1.Location = PointToClient(pos);
             }
+        }
+
+        private void trbPicsize_Scroll(object sender, EventArgs e)
+        {
+            imagerist.SetZoom((double)trbPicsize.Value / (double)trbPicsize.Maximum);
+            pictureBox1.Image = imagerist.GetBitmap();
         }
     }
 }
