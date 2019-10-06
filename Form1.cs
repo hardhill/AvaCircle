@@ -89,7 +89,7 @@ namespace Avacircle
         {
             if (e.Button == MouseButtons.Left) //
             {
-                Point pos = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
+                Point pos = new Point(Cursor.Position.X - x, Cursor.Position.Y - y - 68);
                pictureBox1.Location = PointToClient(pos);
             }
         }
@@ -98,6 +98,8 @@ namespace Avacircle
         {
             imagerist.SetZoom((double)trbPicsize.Value / (double)trbPicsize.Maximum);
             pictureBox1.Image = imagerist.GetBitmap();
+            pictureBox1.Location = new Point(0, 0);
+            toolImageInfo.Text = String.Format("img size width:{0}, height:{1}", imagerist.GetWidth(), imagerist.GetHeight());
         }
     }
 }

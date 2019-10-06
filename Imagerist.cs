@@ -53,6 +53,7 @@ namespace Avacircle
         public void SetBitmap(Bitmap value)
         {
             _bitmap = value;
+            _zbitmap = GetZommed(_bitmap, _zoom);
         }
         public int GetHeight()
         {
