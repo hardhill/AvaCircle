@@ -30,6 +30,7 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlConrol = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.bSave = new System.Windows.Forms.Button();
             this.trbPicsize = new System.Windows.Forms.TrackBar();
             this.bLoad = new System.Windows.Forms.Button();
@@ -37,21 +38,23 @@
             this.stbMain = new System.Windows.Forms.StatusStrip();
             this.toolImageInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.dlgSavePicture = new System.Windows.Forms.SaveFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.trbQuality = new System.Windows.Forms.TrackBar();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.trbQuality = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlConrol.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbPicsize)).BeginInit();
             this.stbMain.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbQuality)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 100);
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(28, 84);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(138, 115);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -60,8 +63,7 @@
             // 
             // pnlConrol
             // 
-            this.pnlConrol.Controls.Add(this.label2);
-            this.pnlConrol.Controls.Add(this.trbQuality);
+            this.pnlConrol.Controls.Add(this.panel1);
             this.pnlConrol.Controls.Add(this.label1);
             this.pnlConrol.Controls.Add(this.bSave);
             this.pnlConrol.Controls.Add(this.trbPicsize);
@@ -71,6 +73,15 @@
             this.pnlConrol.Name = "pnlConrol";
             this.pnlConrol.Size = new System.Drawing.Size(878, 68);
             this.pnlConrol.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(103, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Масштаб";
             // 
             // bSave
             // 
@@ -90,7 +101,7 @@
             this.trbPicsize.Name = "trbPicsize";
             this.trbPicsize.Size = new System.Drawing.Size(315, 23);
             this.trbPicsize.TabIndex = 1;
-            this.trbPicsize.Value = 100;
+            this.trbPicsize.Value = 200;
             // 
             // bLoad
             // 
@@ -125,48 +136,49 @@
             // dlgSavePicture
             // 
             this.dlgSavePicture.Filter = "File PNG (*.png)|*.png|File JPG (*.jpg)|*.jpg";
+            this.dlgSavePicture.FilterIndex = 2;
             this.dlgSavePicture.Title = "Сохранить фото как...";
             // 
-            // label1
+            // panel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(103, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Масштаб";
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.trbQuality);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(496, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(382, 68);
+            this.panel1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(255, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Качество";
             // 
             // trbQuality
             // 
             this.trbQuality.AutoSize = false;
-            this.trbQuality.Location = new System.Drawing.Point(734, 39);
+            this.trbQuality.Location = new System.Drawing.Point(247, 23);
             this.trbQuality.Maximum = 100;
             this.trbQuality.Minimum = 5;
             this.trbQuality.Name = "trbQuality";
             this.trbQuality.Size = new System.Drawing.Size(132, 18);
             this.trbQuality.SmallChange = 5;
-            this.trbQuality.TabIndex = 4;
+            this.trbQuality.TabIndex = 6;
             this.trbQuality.TickFrequency = 5;
             this.trbQuality.Value = 90;
-            this.trbQuality.Scroll += new System.EventHandler(this.trbQuality_Scroll);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(743, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Качество";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 496);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.stbMain);
             this.Controls.Add(this.pnlConrol);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AvaCircle";
@@ -177,6 +189,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.trbPicsize)).EndInit();
             this.stbMain.ResumeLayout(false);
             this.stbMain.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbQuality)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -194,9 +208,10 @@
         private System.Windows.Forms.ToolStripStatusLabel toolImageInfo;
         private System.Windows.Forms.SaveFileDialog dlgSavePicture;
         private System.Windows.Forms.Button bSave;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TrackBar trbQuality;
-        private System.Windows.Forms.Label label1;
     }
 }
 

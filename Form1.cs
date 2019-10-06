@@ -87,7 +87,7 @@ namespace Avacircle
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right) // или любую другую, какая удобнее
+            if (e.Button == MouseButtons.Left) // или любую другую, какая удобнее
             {
                 Point pos = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
                pictureBox1.Location = PointToClient(pos);

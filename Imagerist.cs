@@ -12,6 +12,8 @@ namespace Avacircle
     class Imagerist
     {
         private Bitmap _bitmap;
+        private Bitmap _zbitmap;
+        private double _zoom;
         private Encoder myEncoderQuality;
         ImageCodecInfo myImageCodecInfo;
         Encoder myEncoderDepth;
@@ -21,9 +23,17 @@ namespace Avacircle
 
         public Imagerist()
         {
+            _zoom = 1d;
             _bitmap = new Bitmap(100,100);
+            _zbitmap = GetZommed(_bitmap, _zoom);
             Quality = 90L;
         }
+
+        private Bitmap GetZommed(Bitmap bitmap, double zoom)
+        {
+            
+        }
+
         public Bitmap GetBitmap()
         {
             return _bitmap;
@@ -78,6 +88,10 @@ namespace Avacircle
             }
         }
 
+        internal void SetZoom(double zoom)
+        {
+
+        }
         private static ImageCodecInfo GetEncoderInfo(String mimeType)
         {
             int j;
@@ -89,6 +103,35 @@ namespace Avacircle
                     return encoders[j];
             }
             return null;
+        }
+
+        private Image ResizeOrigImg(Image image, int nWidth, int nHeight)
+        {
+            int newWidth, newHeight;
+            var coefH = (double)nHeight / (double)image.Height;
+            var coefW = (double)nWidth / (double)image.Width;
+            if (coefW >= coefH)
+            {
+                newHeight = (int)(image.Height * coefH);
+                newWidth = (int)(image.Width * coefH);
+            }
+            else
+            {
+                newHeight = (int)(image.Height * coefW);
+                newWidth = (int)(image.Width * coefW);
+            }
+
+            Image result = new Bitmap(newWidth, newHeight);
+            using (var g = Graphics.FromImage(result))
+            {
+                g.CompositingQuality = CompositingQuality.HighQuality;
+                g.SmoothingMode = SmoothingMode.HighQuality;
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+                g.DrawImage(image, 0, 0, newWidth, newHeight);
+                g.Dispose();
+            }
+            return result;
         }
     }
 }
